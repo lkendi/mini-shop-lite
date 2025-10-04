@@ -15,17 +15,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Sys Admin',
-            'email' => 'admin@demo.com',
-            'role' => 'admin',
-            'password' => bcrypt('password'),
-        ]);
+        User::firstOrCreate(
+            [ 'email' => 'admin@demo.com' ],
+            [
+                'name' => 'Sys Admin',
+                'email' => 'admin@demo.com',
+                'role' => 'admin',
+                'password' => bcrypt('password'),
+            ]);
 
-        User::factory()->create([
-            'name' => 'Customer 01',
-            'email' => 'customer@demo.com',
-            'role' => 'customer',
+        User::firstOrCreate(
+            [ 'email' => 'customer@demo.com' ],
+            [
+                'name' => 'Customer 01',
+                'email' => 'customer@demo.com',
+                'role' => 'customer',
             'password' => bcrypt('password'),
         ]);
     }
