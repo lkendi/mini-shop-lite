@@ -89,7 +89,10 @@
                             </div>
                         </dl>
                         <div class="mt-6">
-                            <button type="button" class="w-full bg-blue-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-800 focus:ring-blue-500">Checkout</button>
+                            <form action="{{ route('checkout.store') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="w-full bg-blue-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-800 focus:ring-blue-500">Checkout</button>
+                            </form>
                         </div>
                     </div>
                     <div class="mt-4 text-center">

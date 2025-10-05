@@ -20,9 +20,8 @@ class AdminDashboardController extends Controller
                                 ->groupBy('category')
                                 ->get();
 
-        //TODO: Add orders table
-        $totalSales = 0;
-        $newOrders = 0; 
+        $totalSales = DB::table('orders')->where('status', 'completed')->sum('total_amount');
+        $newOrders = DB::table('orders')->where('status', 'pending')->count();
         $salesByCategory = Product::select('category', DB::raw('SUM(price) as total_sales'))
                                 ->groupBy('category')
                                 ->get();

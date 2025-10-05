@@ -14,19 +14,6 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center flex flex-col justify-between">
                 <div>
-                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/50">
-                        <x-heroicon-o-user class="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <h3 class="mt-5 text-lg font-medium text-gray-900 dark:text-white">My Account</h3>
-                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                        <p>{{ Auth::user()->email }}</p>
-                    </div>
-                </div>
-                <a href="{{ route('profile.edit') }}" class="mt-6 inline-block w-full bg-white dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700">Edit Profile</a>
-            </div>
-
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center flex flex-col justify-between">
-                <div>
                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 dark:bg-green-900/50">
                         <x-heroicon-o-shopping-cart class="h-6 w-6 text-green-600 dark:text-green-400" />
                     </div>
@@ -36,6 +23,19 @@
                     </div>
                 </div>
                 <a href="{{ route('cart.index') }}" class="mt-6 inline-block w-full bg-green-600 text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-green-700">View Cart</a>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center flex flex-col justify-between">
+                <div>
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-900/50">
+                        <x-heroicon-o-clipboard-document-list class="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                    </div>
+                    <h3 class="mt-5 text-lg font-medium text-gray-900 dark:text-white">My Orders</h3>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                        <p>Track your past and current orders.</p>
+                    </div>
+                </div>
+                <a href="{{ route('orders.index') }}" class="mt-6 inline-block w-full bg-yellow-600 text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-yellow-700">View Orders</a>
             </div>
 
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center flex flex-col justify-between">

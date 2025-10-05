@@ -33,6 +33,16 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
+        User::firstOrCreate(
+            [ 'email' => 'customer@example.com' ],
+            [
+                'name' => 'Another Customer',
+                'email' => 'customer@example.com',
+                'role' => 'customer',
+            'password' => bcrypt('password'),
+        ]);
+
         $this->call(ProductsTableSeeder::class);
+        $this->call(OrderSeeder::class);
     }
 }

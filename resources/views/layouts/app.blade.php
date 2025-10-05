@@ -41,9 +41,11 @@
                                 <a href="{{ route('admin.dashboard') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Dashboard</a>
                                 <a href="{{ route('admin.products.index') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Products</a>
                                 <a href="{{ route('admin.customers.index') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Customers</a>
+                                <a href="{{ route('admin.orders.index') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Orders</a>
                             @else
                                 <a href="{{ route('home') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Home</a>
                                 <a href="{{ route('products.index') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Products</a>
+                                <a href="{{ route('customer.dashboard') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Dashboard</a>
                             @endif
                         @else
                             <a href="{{ route('home') }}" class="font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500">Home</a>
