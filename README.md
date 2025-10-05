@@ -6,11 +6,7 @@ A simple, modern e-commerce application built with Laravel.
 
 Access the hosted site using [this link](https://mini-shop-lite-production.up.railway.app/)
 
-### Video Demo
-
-<iframe src="https://drive.google.com/file/d/1zvAvicWbkPdMKdPsWSFZX6nP-HHPZuYp/preview" width="640" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>
-
-*If the embedded video does not display, you can access it directly via [this link](https://drive.google.com/file/d/1zvAvicWbkPdMKdPsWSFZX6nP-HHPZuYp/view?usp=sharing).*
+Watch the demo video using [this link](https://drive.google.com/file/d/1zvAvicWbkPdMKdPsWSFZX6nP-HHPZuYp/view?usp=sharing)
 
 ## Features
 
@@ -95,3 +91,7 @@ To setup the project on a local machine:
 - Feel free to register with custom credentials as well
 
 Explore the product catalog, add items to your cart, and simulate the ordering process. As an admin, you can manage all aspects of the store from the admin dashboard.
+
+--
+
+Image Credits: [Pexels](https://www.pexels.com/)
