@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.edit-customer').forEach(button => {
         button.addEventListener('click', function () {
             const customerId = this.dataset.id;
-            fetch(`/api/users/${customerId}`) // Assuming /api/users/{id} endpoint for customer details
+            fetch(`/api/customers/${customerId}`) // Assuming /api/users/{id} endpoint for customer details
                 .then(response => response.json())
                 .then(customer => {
                     const form = document.getElementById('edit-customer-form');

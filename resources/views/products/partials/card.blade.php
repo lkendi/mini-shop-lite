@@ -47,18 +47,15 @@
         </div>
     </div>
 
-    <!-- Hover Actions -->
     <div class="px-4 pb-6">
         @if($product->stock > 0)
-            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 text-sm font-medium flex items-center justify-center group/btn">
-                <x-heroicon-o-shopping-cart class="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
-                Add to Cart
-            </button>
-        @else
-            <a href="{{ route('products.show', $product) }}" 
-               class="w-full block text-center bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200 text-sm font-medium">
-                View Details
-            </a>
+            <form action="{{ route('cart.add', $product->id) }}" method="POST" class="w-full">
+                @csrf
+                <button type="submit" class="w-full bg-blue-600 text-white py-4 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 text-sm font-medium flex items-center justify-center group/btn">
+                    <x-heroicon-o-shopping-cart class="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                    Add to Cart
+                </button>
+            </form>
         @endif
     </div>
 </div>

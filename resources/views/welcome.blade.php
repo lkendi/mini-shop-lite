@@ -60,35 +60,7 @@
         </div>
     </section>
 
-    <section id="categories" class="py-20 bg-gray-100 dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-                    Shop by Category
-                </h2>
-                <p class="mt-3 text-lg text-gray-600 dark:text-gray-400">
-                    Discover collections tailored for you
-                </p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-8">
-                @foreach($categories as $category)
-                <a href="#" 
-                class="flex-none w-32 group text-center transform hover:scale-105 transition-transform duration-300">
-                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-800 dark:to-blue-700 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                        <x-heroicon-o-tag class="w-10 h-10 text-blue-700 dark:text-blue-300" />
-                    </div>
-
-                    <h3 class="mt-4 font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                        {{ $category }}
-                    </h3>
-                </a>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <section class="py-12 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Looking for something else?</h3>
             <p class="text-gray-600 dark:text-gray-300 mb-6">Browse our full catalog to discover more products and exclusive deals.</p>

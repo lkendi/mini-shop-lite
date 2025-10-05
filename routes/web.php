@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminCustomerController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,15 +27,19 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
         Route::get('/products/create', function () { return 'Admin Product Create Page'; })->name('products.create');
         Route::post('/products', [AdminProductController::class, 'store'])->name('products.store');
-        Route::get('/customers', [AdminDashboardController::class, 'adminCustomersIndex'])->name('customers.index');
+        Route::get('/customers', [AdminCustomerController::class, 'index'])->name('customers.index');
+        Route::patch('/customers/{customer}', [AdminCustomerController::class, 'update'])->name('customers.update');
     });
+
+use App\Services\CartService;
 
 Route::middleware(['auth', 'role:customer'])
     ->prefix('customer')
     ->name('customer.')
     ->group(function () {
-        Route::get('/dashboard', function () {
-            return view('customer.dashboard');
+        Route::get('/dashboard', function (CartService $cartService) {
+            $cart = $cartService->all();
+            return view('customer.dashboard', compact('cart'));
         })->name('dashboard');
     });
 
@@ -62,6 +68,14 @@ Route::get('/products', [ProductController::class, 'index'])->middleware('redire
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 // API-like routes for admin product management
+Route::get('/api/customers/{customer}', [AdminCustomerController::class, 'show']);
 Route::get('/api/products/{product}', [AdminProductController::class, 'show']);
 Route::patch('/admin/products/{product}', [AdminProductController::class, 'update'])->name('admin.products.update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
+
+// Cart routes
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');

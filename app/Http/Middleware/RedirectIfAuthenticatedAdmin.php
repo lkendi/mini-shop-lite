@@ -15,15 +15,8 @@ class RedirectIfAuthenticatedAdmin
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                if (Auth::user()->role === 'admin') {
-                    return redirect()->route('admin.dashboard');
-                }
-                return redirect('/');
-            }
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return redirect()->route('admin.dashboard');
         }
 
         return $next($request);
