@@ -1,13 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProductController::class, 'welcome'])->middleware('redirect.admin')->name('home');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -19,9 +21,11 @@ Route::middleware(['auth', 'role:admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
+        Route::get('/products/create', function () { return 'Admin Product Create Page'; })->name('products.create');
+        Route::post('/products', [AdminProductController::class, 'store'])->name('products.store');
+        Route::get('/customers', [AdminDashboardController::class, 'adminCustomersIndex'])->name('customers.index');
     });
 
 Route::middleware(['auth', 'role:customer'])
@@ -53,3 +57,11 @@ Route::get('/dashboard', function () {
 })->middleware('auth')->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/products', [ProductController::class, 'index'])->middleware('redirect.admin')->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+// API-like routes for admin product management
+Route::get('/api/products/{product}', [AdminProductController::class, 'show']);
+Route::patch('/admin/products/{product}', [AdminProductController::class, 'update'])->name('admin.products.update');
+Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');

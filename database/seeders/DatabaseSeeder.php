@@ -32,5 +32,7 @@ class DatabaseSeeder extends Seeder
                 'role' => 'customer',
             'password' => bcrypt('password'),
         ]);
+
+        $this->call(ProductsTableSeeder::class);
     }
 }

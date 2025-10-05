@@ -1,0 +1,45 @@
+/* styles for welcome page */
+
+#theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-cta-primary {
+    background-color: #ffffff; 
+    color: #0f172a;
+}
+.hero-cta-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.product-card .product-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.product-card .product-footer {
+    margin-top: auto;
+}
+
+.product-title {
+    min-height: 3rem;
+}
+.product-desc {
+    min-height: 3rem;
+}
+
+@media (min-width: 640px) {
+    .hero-cta-primary:focus {
+        outline: 3px solid rgba(59, 130, 246, 0.4);
+        outline-offset: 2px;
+    }
+}
